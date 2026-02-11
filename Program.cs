@@ -21,30 +21,32 @@ if(permissãoPraJogar == "1")
     {
         case "1":
             Console.WriteLine("O jogo da soma vai começar!");
-           
-            var pontos = 0;
-            do
+            var contagemDePontos = 0;
+
+            for (int i = 0; i <= 5; i++)
             {
+                
                 Random valor = new Random();
-                int valores = valor.Next(1, 9);
-                int valores2 = valor.Next(1, 9);
-                Console.WriteLine($"Qual é o resultado da soma entre {valores} e {valores2}");
+                int valores = valor.Next(0, 100);
+                int valores2 = valor.Next(0,100);
+                Console.WriteLine($"Qual é o resultado da soma entre {valores} + {valores2}");
                 var resposta = Convert.ToInt32(Console.ReadLine());
                 var resultadointerno = valores + valores2;
                  
                 if(resposta == resultadointerno)
                 {
                     Console.WriteLine("Certa resposta! +1 ponto ");
-                    pontos++;
+                    contagemDePontos++;
                 }
                 else
                 {
-                    Console.WriteLine("Resposta incorreta -1");
-                    pontos--;
+                    Console.WriteLine("Resposta incorreta -1 ponto");
+                    contagemDePontos--;
                 }
-
-            } while (pontos <=5);
-            Console.WriteLine($"Quantidades de acertos: {pontos}");
+               
+            }
+            Console.WriteLine($"Total de pontos:{contagemDePontos}");
+            
             ;
             break;
             case "2":;
