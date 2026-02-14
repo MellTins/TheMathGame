@@ -13,8 +13,8 @@ if(permissãoPraJogar == "1")
     Console.WriteLine("Escolha com que tipo de operação aritmética quer jogar:");
     Console.WriteLine("\t1 - Soma");
     Console.WriteLine("\t2 - Subtração");
-    Console.WriteLine("\t3 - Divisão");
-    Console.WriteLine("\t4 - Multiplicação");
+    Console.WriteLine("\t3 - Multiplicação");
+    Console.WriteLine("\t4 - Divisão");
     var tipoDeOperaçãoEscolhida = Console.ReadLine();
 
     switch(tipoDeOperaçãoEscolhida)
@@ -49,11 +49,98 @@ if(permissãoPraJogar == "1")
             
             ;
             break;
-            case "2":;
+            case "2":
+
+            Console.WriteLine("O jogo da subtração vai começar!");
+            var contagemDePontos1 = 0;
+
+            for (int i = 0; i <= 5; i++)
+            {
+
+                Random valor = new Random();
+                int valores = valor.Next(0, 100);
+                int valores2 = valor.Next(0, 100);
+                Console.WriteLine($"Qual é o resultado da subtração entre {valores} - {valores2}");
+                var resposta = Convert.ToInt32(Console.ReadLine());
+                var resultadointerno = valores - valores2;
+
+                if (resposta == resultadointerno)
+                {
+                    Console.WriteLine("Certa resposta! +1 ponto ");
+                    contagemDePontos1++;
+                }
+                else
+                {
+                    Console.WriteLine("Resposta incorreta -1 ponto");
+                    contagemDePontos1--;
+                }
+
+            }
+            Console.WriteLine($"Total de pontos:{contagemDePontos1}");
+
+            //se o primeiro valor aleatorio for menor que o segundo ,eu troco eles de lugar
+            ;
             break;
             case "3":;
+
+            Console.WriteLine("O jogo da Multiplicação vai começar!");
+            var contagemDePontos2 = 0;
+
+            for (int i = 0; i <= 5; i++)
+            {
+
+                Random valor = new Random();
+                int valores = valor.Next(0, 100);
+                int valores2 = valor.Next(0, 100);
+                Console.WriteLine($"Qual é o resultado da multiplicação entre {valores} * {valores2}");
+                var resposta = Convert.ToInt32(Console.ReadLine());
+                var resultadointerno = valores * valores2;
+
+                if (resposta == resultadointerno)
+                {
+                    Console.WriteLine("Certa resposta! +1 ponto ");
+                    contagemDePontos2++;
+                }
+                else
+                {
+                    Console.WriteLine("Resposta incorreta -1 ponto");
+                    contagemDePontos2--;
+                }
+
+            }
+            Console.WriteLine($"Total de pontos:{contagemDePontos2}");
+
             break;
-            case "4":;
+            case "4":
+
+            Console.WriteLine("O jogo da Multiplicação vai começar!");
+            var contagemDePontos3 = 0;
+
+            for (int i = 0; i <= 5; i++)
+            {
+
+                Random valor = new Random();
+                int valores = valor.Next(0, 100);
+                int valores2 = valor.Next(0, 100);
+                Console.WriteLine($"Qual é o resultado da divisão entre {valores} / {valores2}");
+                var resposta = Convert.ToInt32(Console.ReadLine());
+                var resultadointerno = valores / valores2 ;
+
+                if (resposta == resultadointerno)
+                {
+                    Console.WriteLine("Certa resposta! +1 ponto ");
+                    contagemDePontos3++;
+                }
+                else
+                {
+                    Console.WriteLine("Resposta incorreta -1 ponto");
+                    contagemDePontos3--;
+                }
+
+            }
+            Console.WriteLine($"Total de pontos:{contagemDePontos3}");
+
+            ;
             break;
     }
 }
