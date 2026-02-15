@@ -35,6 +35,7 @@ if(permissãoPraJogar == "1")
                 var resposta = Convert.ToInt32(Console.ReadLine());
                 var resultadointerno = valores + valores2;
 
+                
                 jogosAnteriores.Add(resultadointerno);
                 if(resposta == resultadointerno)
                 {
@@ -50,6 +51,10 @@ if(permissãoPraJogar == "1")
             }
             Console.WriteLine($"Total de pontos:{contagemDePontos}");
             
+            foreach(var resultado in jogosAnteriores)
+            {
+                Console.WriteLine($"Resultdos dos jogos anteriores: {resultado}");
+            }
            
             ;
             break;
