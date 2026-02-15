@@ -1,4 +1,6 @@
 ﻿
+List<int> jogosAnteriores = new();
+
 Console.WriteLine("Bem vindo ao Jogo Da Matemática!");
 Console.WriteLine("Vamos começar?");
 Console.WriteLine("\t1 - Sim");
@@ -32,7 +34,8 @@ if(permissãoPraJogar == "1")
                 Console.WriteLine($"Qual é o resultado da soma entre {valores} + {valores2}");
                 var resposta = Convert.ToInt32(Console.ReadLine());
                 var resultadointerno = valores + valores2;
-                 
+
+                jogosAnteriores.Add(resultadointerno);
                 if(resposta == resultadointerno)
                 {
                     Console.WriteLine("Certa resposta! +1 ponto ");
@@ -47,6 +50,7 @@ if(permissãoPraJogar == "1")
             }
             Console.WriteLine($"Total de pontos:{contagemDePontos}");
             
+           
             ;
             break;
             case "2":
@@ -76,6 +80,10 @@ if(permissãoPraJogar == "1")
                 }
 
             }
+
+
+            
+
             Console.WriteLine($"Total de pontos:{contagemDePontos1}");
 
             //se o primeiro valor aleatorio for menor que o segundo ,eu troco eles de lugar
@@ -113,7 +121,7 @@ if(permissãoPraJogar == "1")
             break;
             case "4":
 
-            Console.WriteLine("O jogo da Multiplicação vai começar!");
+            Console.WriteLine("O jogo da Divisão vai começar!");
             var contagemDePontos3 = 0;
 
             for (int i = 0; i <= 5; i++)
@@ -121,10 +129,12 @@ if(permissãoPraJogar == "1")
 
                 Random valor = new Random();
                 int valores = valor.Next(0, 100);
-                int valores2 = valor.Next(0, 100);
+                int valores2 = valor.Next();// o resultado deve sempre ser inteiro
                 Console.WriteLine($"Qual é o resultado da divisão entre {valores} / {valores2}");
                 var resposta = Convert.ToInt32(Console.ReadLine());
                 var resultadointerno = valores / valores2 ;
+
+              //se o resto da divisão nao for igual a 0, o jogo deve recomeçar
 
                 if (resposta == resultadointerno)
                 {
