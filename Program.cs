@@ -1,5 +1,11 @@
 ﻿
 List<int> jogosAnteriores = new();
+int resposta;
+int resultadoInterno;
+
+Random valor = new Random();
+int valores = valor.Next(100);
+int valores2 = valor.Next(1, 100);
 Console.WriteLine("Bem vindo ao Jogo Da Matemática!");
 Console.WriteLine("Vamos começar?");
 Console.WriteLine("\t1 - Sim");
@@ -29,18 +35,16 @@ if (permissãoPraJogar == "1")
 
                 for (int i = 1; i <= 5; i++)
                 {
-                    Random valor = new Random();
-                    int valores = valor.Next(0, 100);
-                    int valores2 = valor.Next(0, 100);
+                    
 
                     Console.WriteLine($"Qual é o resultado da soma entre {valores} + {valores2}");
-                    var resposta = Convert.ToInt32(Console.ReadLine());
-                    int resultadointerno = valores + valores2;
+                     resposta = Convert.ToInt32(Console.ReadLine());
+                     resultadoInterno = valores + valores2;
 
 
-                    jogosAnteriores.Add(resultadointerno);
+                    jogosAnteriores.Add(resultadoInterno);
 
-                    if (resposta == resultadointerno)
+                    if (resposta == resultadoInterno)
                     {
                         Console.WriteLine("Certa resposta! +1 ponto ");
                         contagemDePontos++;
@@ -80,14 +84,16 @@ if (permissãoPraJogar == "1")
             for (int i = 0; i <= 5; i++)
             {
 
-                Random valor = new Random();
-                int valores = valor.Next(0, 100);
-                int valores2 = valor.Next(0, 100);
+                
                 Console.WriteLine($"Qual é o resultado da subtração entre {valores} - {valores2}");
-                var resposta = Convert.ToInt32(Console.ReadLine());
-                var resultadointerno = valores - valores2;
+                 resposta = Convert.ToInt32(Console.ReadLine());
+                 resultadoInterno = valores - valores2;
 
-                if (resposta == resultadointerno)
+
+            
+
+
+                if (resposta == resultadoInterno)
                 {
                     Console.WriteLine("Certa resposta! +1 ponto ");
                     contagemDePontos1++;
@@ -118,14 +124,11 @@ if (permissãoPraJogar == "1")
             for (int i = 0; i <= 5; i++)
             {
 
-                Random valor = new Random();
-                int valores = valor.Next(0, 100);
-                int valores2 = valor.Next(0, 100);
                 Console.WriteLine($"Qual é o resultado da multiplicação entre {valores} * {valores2}");
-                var resposta = Convert.ToInt32(Console.ReadLine());
-                var resultadointerno = valores * valores2;
+                 resposta = Convert.ToInt32(Console.ReadLine());
+                 resultadoInterno = valores * valores2;
 
-                if (resposta == resultadointerno)
+                if (resposta == resultadoInterno)
                 {
                     Console.WriteLine("Certa resposta! +1 ponto ");
                     contagemDePontos2++;
@@ -145,30 +148,64 @@ if (permissãoPraJogar == "1")
             Console.WriteLine("O jogo da Divisão vai começar!");
             var contagemDePontos3 = 0;
 
-            for (int i = 0; i <= 5; i++)
+            for(int i = 0;i <= 5;i++)
             {
 
-                Random valor = new Random();
-                int valores = valor.Next(0, 100);
-                int valores2 = valor.Next();// o resultado deve sempre ser inteiro
-                Console.WriteLine($"Qual é o resultado da divisão entre {valores} / {valores2}");
-                var resposta = Convert.ToInt32(Console.ReadLine());
-                var resultadointerno = valores / valores2;
-
-                //se o resto da divisão nao for igual a 0, o jogo deve recomeçar
-
-                if (resposta == resultadointerno)
+               
+                if (valores <= valores2)
                 {
-                    Console.WriteLine("Certa resposta! +1 ponto ");
-                    contagemDePontos3++;
+                    Console.WriteLine("O dividendo não pode ser menor que o divisor!");
+                    var valorMaior = valores2;
+                    Console.WriteLine($"Qual é o resultado da divisão entre {valorMaior} / {valores} (apenas o resultado inteiro!)");
+                    resposta = Convert.ToInt32(Console.ReadLine());
+                    resultadoInterno = valorMaior / valores;
+
                 }
                 else
                 {
-                    Console.WriteLine("Resposta incorreta -1 ponto");
-                    contagemDePontos3--;
+                    
+
+                    do 
+                    {
+                        valores = valor.Next(100);
+                        valores2 = valor.Next(1, 100);
+
+                        Console.WriteLine($"Qual é o resultado da divisão entre {valores} / {valores2}");
+                    resposta = Convert.ToInt32(Console.ReadLine());
+                    resultadoInterno = valores / valores2;
+
+                    //se o resto da divisão nao for igual a 0, o jogo deve recomeçar
+                    
+                    
+                        if (valores % valores2 == 0)
+                        {
+
+                            if (resposta == resultadoInterno)
+                            {
+                                Console.WriteLine("Certa resposta! +1 ponto ");
+                                contagemDePontos3++;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Resposta incorreta -1 ponto");
+                                contagemDePontos3--;
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Erro! o resultado não pode ser decimal!");
+
+                        }
+
+
+                    } while (valores % valores2 != 0);
+
+                    
                 }
 
-            }
+
+            } 
             Console.WriteLine($"Total de pontos:{contagemDePontos3}");
 
             ;
