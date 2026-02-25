@@ -145,88 +145,9 @@ if (permissãoPraJogar == "1")
             break;
         case "4":
 
-            Console.WriteLine("O jogo da Divisão vai começar!");
-            var contagemDePontos3 = 0;
-            valores = valor.Next(100);
-            valores2 = valor.Next(1, 100);
+           
 
-            for (int i = 0; i <= 5; i++)
-            {
-
-                if (valores <= valores2)
-                {
-                    Console.WriteLine("O dividendo não pode ser menor que o divisor!");
-                    var valorMaior = valores2;
-                    Console.WriteLine($"Qual é o resultado da divisão entre {valorMaior} / {valores} (apenas o resultado inteiro!)");
-                    resposta = Convert.ToInt32(Console.ReadLine());
-                    resultadoInterno = valorMaior / valores;
-
-
-
-                    if (valores % valores2 == 0)
-                    {
-
-                        if (resposta == resultadoInterno)
-                        {
-                            Console.WriteLine("Certa resposta! +1 ponto ");
-                            contagemDePontos3++;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Resposta incorreta -1 ponto");
-                            contagemDePontos3--;
-                        }
-
-                    }
-
-                    else
-                    {
-
-
-                        do
-                        {
-
-
-                            Console.WriteLine($"Qual é o resultado da divisão entre {valores} / {valores2}");
-                            resposta = Convert.ToInt32(Console.ReadLine());//aqui deve ser trado antes de mostar os numeors pro usuario
-                            resultadoInterno = valores / valores2;
-
-                            //se o resto da divisão nao for igual a 0, o jogo deve recomeçar
-
-
-                            if (valores % valores2 == 0)
-                            {
-
-                                if (resposta == resultadoInterno)
-                                {
-                                    Console.WriteLine("Certa resposta! +1 ponto ");
-                                    contagemDePontos3++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Resposta incorreta -1 ponto");
-                                    contagemDePontos3--;
-                                }
-
-                            }
-                            else
-                            {
-                                Console.WriteLine("Erro! o resultado não pode ser decimal!");
-
-                            }
-
-
-                        } while (valores % valores2 != 0);
-
-                    }
-
-
-
-                }
-            }
-                Console.WriteLine($"Total de pontos:{contagemDePontos3}");
-
-                ;
+            ;
                 break;
             
     }
