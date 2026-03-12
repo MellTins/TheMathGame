@@ -1,6 +1,12 @@
-﻿int resultadoInterno;
-int pontosSomar = 0;
-bool respostaUsuario;
+﻿List<int> JogosAnteriores = [];
+string? sair;
+
+do
+{
+    int? resultadoInterno;
+    int pontosSomar = 0;
+    bool? respostaUsuario;
+    
 
     Console.WriteLine("Bem vindo ao Jogo Da Matemática!");
     Console.WriteLine("Vamos lá, mas antes uma breve instrução:");
@@ -11,9 +17,10 @@ bool respostaUsuario;
     Console.WriteLine("\t2 - Subtração");
     Console.WriteLine("\t3 - Multiplicação");
     Console.WriteLine("\t4 - Divisão");
+    Console.WriteLine("\t5 - Historico de jogos anteriores");
 
-    
     string? tipoDeOperaçãoEscolhida = Console.ReadLine();
+
 
     switch (tipoDeOperaçãoEscolhida)
     {
@@ -29,6 +36,8 @@ bool respostaUsuario;
 
                 resultadoInterno = valorASomar1 + ValorASomar2;
 
+                JogosAnteriores.Add(resultadoInterno.Value);
+
                 if (resultadoInterno == valorInteiro)
                 {
                     Console.WriteLine("Certa Resposta");
@@ -39,10 +48,10 @@ bool respostaUsuario;
                 {
                     Console.WriteLine("Resposta errada");
                 }
-           
-        }
-        
-        
+
+            }
+
+
             break;
 
         case "2":
@@ -62,6 +71,7 @@ bool respostaUsuario;
                     respostaUsuario = int.TryParse(Console.ReadLine(), out respostaSubtrair);
 
                     resultadoInterno = valorASubtrair2 - valorAsubtrair1;
+                    JogosAnteriores.Add(resultadoInterno.Value);
                     if (resultadoInterno == respostaSubtrair)
                     {
                         Console.WriteLine("Certa Resposta");
@@ -74,6 +84,7 @@ bool respostaUsuario;
                     respostaUsuario = int.TryParse(Console.ReadLine(), out respostaSubtrair);
 
                     resultadoInterno = valorAsubtrair1 - valorASubtrair2;
+                    JogosAnteriores.Add(resultadoInterno.Value);
                     if (resultadoInterno == respostaSubtrair)
                     {
                         Console.WriteLine("Certa Resposta");
@@ -96,7 +107,7 @@ bool respostaUsuario;
                 respostaUsuario = int.TryParse(Console.ReadLine(), out int valorInteiro);
 
                 resultadoInterno = valorAMultiplicar1 * ValorAMultiplicar2;
-
+                JogosAnteriores.Add(resultadoInterno.Value);
                 if (resultadoInterno == valorInteiro)
                 {
                     Console.WriteLine("Certa Resposta");
@@ -121,6 +132,7 @@ bool respostaUsuario;
                     Console.WriteLine(valorADividir1 + "/" + ValorADividir2);
                     respostaUsuario = int.TryParse(Console.ReadLine(), out int valorInteiro);
                     resultadoInterno = valorADividir1 / ValorADividir2;
+                    JogosAnteriores.Add(resultadoInterno.Value);
                     if (resultadoInterno == valorInteiro)
                     {
 
@@ -134,14 +146,32 @@ bool respostaUsuario;
                 }
             }
             break;
+        case "5":
+
+            foreach (int jogos in JogosAnteriores)
+            {
+                Console.WriteLine($"Jogos anteriores:{jogos}");
+            }
+            break;
+
+
     }
 
-    
+    Console.WriteLine("Deseja encerrar? S/N");
+    sair = Console.ReadLine();
+
+} while (sair != "s");
 
 
 
 
-    
-            
 
-    
+
+
+
+
+
+
+
+
+
