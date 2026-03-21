@@ -1,12 +1,14 @@
 ﻿List<int> JogosAnteriores = [];
 string? sair;
 
+
 do
 {
     int? resultadoInterno;
     int pontosSomar = 0;
     bool? respostaUsuario;
     
+
 
     Console.WriteLine("Bem vindo ao Jogo Da Matemática!");
     Console.WriteLine("Vamos lá, mas antes uma breve instrução:");
@@ -31,10 +33,12 @@ do
                 Random valorSomar = new Random();
                 int valorASomar1 = valorSomar.Next(1, 99);
                 int ValorASomar2 = valorSomar.Next(1, 99);
+
                 Console.WriteLine(valorASomar1 + "+" + ValorASomar2);
                 respostaUsuario = int.TryParse(Console.ReadLine(), out int valorInteiro);
 
                 resultadoInterno = valorASomar1 + ValorASomar2;
+                
 
                 JogosAnteriores.Add(resultadoInterno.Value);
 
@@ -161,7 +165,6 @@ do
     sair = Console.ReadLine();
 
 } while (sair != "s");
-
 
 
 
